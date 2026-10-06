@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>英打遊戲版本二</title>
+  <style>
+    body {
+      font-family: system-ui, "Microsoft JhengHei", sans-serif;
+      background-color: #f8f9fa;
+      color: #212529;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+    }
+    .preview-card {
+      background: #ffffff;
+      border: 1px solid #dee2e6;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      text-align: center;
+      max-width: 500px;
+      width: 100%;
+    }
+    .img-container {
+      margin-bottom: 20px;
+    }
+    .img-container img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    button {
+      font-size: 1.1rem;
+      padding: 12px 36px;
+      background-color: #0d6efd;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    button:hover {
+      background-color: #0b5ed7;
+    }
+  </style>
+</head>
+<body>
+  <div class="preview-card">
+    <h1>英打遊戲版本二</h1>
+    <div class="img-container">
+      <!-- 注意相對路徑：從 index.html 出發進入 assets 資料夾尋找 -->
+      <img src="assets/keyboard.png" alt="鍵盤示意圖">
+    </div>
+    <button type="button" id="startBtn">開始</button>
+  </div>
+
+  <script>
+    // 引用相對路徑的音效檔
+    const audio = new Audio('assets/beep.wav');
+    const startBtn = document.getElementById('startBtn');
+
+    startBtn.addEventListener('click', () => {
+      audio.currentTime = 0;
+      audio.play().catch(err => {
+        console.log('播放失敗：', err);
+      });
+    });
+  </script>
+</body>
+</html>
